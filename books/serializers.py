@@ -18,13 +18,13 @@ class BookSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         """
-        Create and return a new `Snippet` instance, given the validated data.
+        Create and return a new `Book` instance, given the validated data.
         """
         return Book.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         """
-        Update and return an existing `Snippet` instance, given the validated data.
+        Update and return an existing `Book` instance, given the validated data.
         """
         instance.title = validated_data.get('title', instance.title)
         instance.author = validated_data.get('author', instance.author)

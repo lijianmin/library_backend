@@ -17,13 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include('books.urls')),
-    url(r'^', include('borrowed_books.urls')),
-    url(r'^', include('reviews.urls')),
-    url(r'^', include('api_root.urls')),
-    url(r'^account/', include('rest_auth.urls')),
-    url(r'^account/registration/', include('rest_auth.registration.urls')),
+    url(r'^admin/', admin.site.urls), # Django Admin
+    url(r'^', include('books.urls')), # Books Management
+    url(r'^', include('borrowed_books.urls')), # Borrow Books
+    url(r'^', include('reviews.urls')), # Reviews
+    url(r'^', include('api_root.urls')), 
+    url(r'^account/', include('rest_auth.urls')), # Account Management
+    url(r'^account/registration/', include('rest_auth.registration.urls')), # Account Registration
 ]
 
 urlpatterns += [
