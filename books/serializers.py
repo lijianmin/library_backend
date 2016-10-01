@@ -23,7 +23,7 @@ class BookSerializer(serializers.Serializer):
         return Book.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
-        """
+        """ 
         Update and return an existing `Book` instance, given the validated data.
         """
         instance.title = validated_data.get('title', instance.title)

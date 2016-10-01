@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls), # Django Admin
@@ -22,6 +23,8 @@ urlpatterns = [
     url(r'^', include('borrowed_books.urls')), # Borrow Books
     url(r'^', include('reviews.urls')), # Reviews
     url(r'^', include('api_root.urls')), 
+    url(r'^api-token-auth/', obtain_jwt_token), # JWT
+    url(r'^', include('django.contrib.auth.urls')), # Django's own Auth'
     url(r'^account/', include('rest_auth.urls')), # Account Management
     url(r'^account/registration/', include('rest_auth.registration.urls')), # Account Registration
 ]

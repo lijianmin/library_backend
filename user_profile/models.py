@@ -19,13 +19,11 @@ class UserProfile(models.Model):
     gender = (
         ('M', 'Female'),
         ('F', 'Male'),
-        ('UN', 'Unknown'),
     )
 
     gender = models.CharField(max_length = 2, choices = gender, default='F')
 
     # The additional attributes we wish to include.
-
     zip_code = models.CharField(
     	max_length = 6
     )
