@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'books',
     'borrowed_books',
     'reviews',
+    'user_profile',
 ]
 
 SITE_ID = 1
@@ -80,6 +81,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'lendbooks.wsgi.application'
 
+# User Details Serializer for django-rest-auth
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'user_profile.serializers.UserProfileSerializer'
+}
+
+# Custom Register Serializer for extra User Profile fields
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'user_profile.serializers.UserRegisterSerializer',
+}
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -102,7 +112,7 @@ REST_USE_JWT = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-ACCOUNT_EMAIL_SUBJECT_PREFIX = "[Lendbooks] "
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "[Biblio] "
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
